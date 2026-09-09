@@ -17,7 +17,6 @@ import ZariCalculator from './components/ZariCalculator';
 import SareeValuationWizard from './components/SareeValuationWizard';
 import SareeCollection from './components/SareeCollection';
 import LocationExplorer from './components/LocationExplorer';
-import OwnerCardSection from './components/OwnerCardSection';
 import SeoContentSection from './components/SeoContentSection';
 import TestimonialsFaq from './components/TestimonialsFaq';
 
@@ -64,10 +63,6 @@ function HomePage({ currentLang, onOpenBooking }) {
         onOpenBooking={onOpenBooking}
       />
       <LocationExplorer
-        currentLang={currentLang}
-        onOpenBooking={onOpenBooking}
-      />
-      <OwnerCardSection
         currentLang={currentLang}
         onOpenBooking={onOpenBooking}
       />

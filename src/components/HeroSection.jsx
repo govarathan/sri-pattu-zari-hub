@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, Award, Zap, Truck, ShieldAlert } from 'lucide-react';
 import { translations } from '../data/translations';
+import { getImageUrl } from '../utils/imageUtils';
 
 export default function HeroSection({ currentLang, onOpenBooking }) {
   const t = translations[currentLang] || translations.en;
@@ -54,7 +55,7 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
 
   const descStyle = {
     fontSize: 'clamp(0.95rem, 1.5vw, 1.15rem)',
-    color: 'rgba(246,242,234,0.8)',
+    color: 'rgba(246,242,234,0.85)',
     fontWeight: 300,
     lineHeight: 1.7,
     maxWidth: '640px',
@@ -72,7 +73,7 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
     display: 'flex',
     alignItems: 'center',
     gap: '12px',
-    background: 'rgba(22,10,16,0.8)',
+    background: 'rgba(22,10,16,0.85)',
     border: '1px solid rgba(229,193,88,0.25)',
     padding: '14px 16px',
     borderRadius: '16px',
@@ -154,7 +155,7 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
             <div style={badgeStyle}>
               <Award style={{ width: 16, height: 16, color: '#e5c158' }} />
               <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', color: '#f7e7a9', textTransform: 'uppercase' }}>
-                {t.hero.badge}
+                {t.hero.badge || 'Tambaram & South India #1 Old Silk Buyer'}
               </span>
             </div>
 
@@ -183,7 +184,7 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
               </div>
             </div>
 
-            {/* Single Primary CTA - Just Call */}
+            {/* Single Primary CTA - Call Hotline */}
             <div style={ctaStyle}>
               <a
                 href="tel:6374067251"
@@ -191,15 +192,22 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
                 style={{ fontSize: '1rem', padding: '16px 36px' }}
               >
                 <Phone style={{ width: 20, height: 20 }} />
-                <span>{t.hero.btnCall}</span>
+                <span>{t.hero.btnCall || 'Call Hotline: 63740 67251'}</span>
               </a>
+              <button
+                onClick={onOpenBooking}
+                className="btn-gold-luxury"
+                style={{ fontSize: '1rem', padding: '16px 28px', background: 'rgba(52, 211, 153, 0.12)', borderColor: '#34d399', color: '#34d399' }}
+              >
+                <span>Book Doorstep Pickup</span>
+              </button>
             </div>
 
             {/* Assurance */}
             <div style={assuranceStyle}>
               <ShieldAlert style={{ width: 24, height: 24, color: '#e5c158', flexShrink: 0, marginTop: 2 }} />
               <p style={{ fontSize: '0.8rem', color: 'rgba(247,231,169,0.9)', fontWeight: 500, lineHeight: 1.6 }}>
-                {t.doorstepCallout}
+                {t.doorstepCallout || 'Instant doorstep cash payout across Tambaram, Chennai & South India. Zero hidden charges.'}
               </p>
             </div>
           </div>
@@ -216,7 +224,7 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
             <div style={cardStyle}>
               <div style={imageContainerStyle}>
                 <img
-                  src="/images/kanchipuram_hero.png"
+                  src={getImageUrl("images/kanchipuram_hero.png")}
                   alt="Pure Gold Zari Kanchipuram Silk Saree"
                   style={{ width: '100%', height: '320px', objectFit: 'cover', transition: 'transform 0.7s ease' }}
                 />
@@ -234,7 +242,7 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
                 }}>
                   <div>
                     <div style={{ fontSize: '0.6rem', color: '#e5c158', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-                      Payout Valuation
+                      Highest Mill Valuation
                     </div>
                     <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f7e7a9' }}>
                       ₹ 5,000 – ₹ 85,000+
@@ -246,13 +254,13 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
                 </div>
               </div>
 
-              {/* Proprietor Info */}
+              {/* Business Contact Info */}
               <div style={{
                 display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '16px', textAlign: 'center',
               }}>
                 <div style={{ background: '#160a10', border: '1px solid rgba(229,193,88,0.2)', padding: '12px', borderRadius: '12px' }}>
                   <div style={{ color: '#e5c158', fontWeight: 800, fontSize: '0.875rem' }}>SRI PATTU HUB</div>
-                  <div style={{ fontSize: '0.6rem', color: 'rgba(247,231,169,0.6)', fontWeight: 600 }}>Trusted Buyer</div>
+                  <div style={{ fontSize: '0.6rem', color: 'rgba(247,231,169,0.6)', fontWeight: 600 }}>Trusted Silk Buyer</div>
                 </div>
                 <div style={{ background: '#160a10', border: '1px solid rgba(229,193,88,0.2)', padding: '12px', borderRadius: '12px' }}>
                   <div style={{ color: '#34d399', fontWeight: 800, fontSize: '0.875rem' }}>63740 67251</div>
@@ -267,10 +275,10 @@ export default function HeroSection({ currentLang, onOpenBooking }) {
         {/* Stats Bar */}
         <div style={statsGridStyle}>
           {[
-            { value: '25+', label: t.quickStats.years, color: null },
-            { value: '50,000+', label: t.quickStats.clients, color: null },
-            { value: '5 States', label: t.quickStats.states, color: null },
-            { value: 'Spot Cash', label: t.quickStats.speed, color: '#34d399' },
+            { value: '25+', label: t.quickStats?.years || 'Years Direct Mill Experience', color: null },
+            { value: '50,000+', label: t.quickStats?.clients || 'Satisfied Customers', color: null },
+            { value: '5 States', label: t.quickStats?.states || 'South India Service', color: null },
+            { value: 'Spot Cash', label: t.quickStats?.speed || 'Instant Doorstep Payment', color: '#34d399' },
           ].map((stat, i) => (
             <div key={i} style={statCardStyle} className="scroll-reveal">
               <div className={stat.color ? '' : 'gold-gradient-text'} style={{

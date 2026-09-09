@@ -10,7 +10,7 @@ export default function SareeCollection({ currentLang, onOpenBooking }) {
 
   const filteredCatalog = selectedCategory === 'all' 
     ? sareeTypesCatalog 
-    : sareeTypesCatalog.filter(item => item.id === selectedCategory);
+    : sareeTypesCatalog.filter(item => item.category === selectedCategory || item.id === selectedCategory);
 
   return (
     <section id="types" className="py-16 bg-neutral-950 border-b border-amber-500/20">
@@ -20,46 +20,58 @@ export default function SareeCollection({ currentLang, onOpenBooking }) {
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded-full text-xs font-bold text-amber-300">
             <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>{t.types.title}</span>
+            <span>{t.typesPage?.headerTitle || 'Complete Saree & Zari Catalog'}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold gold-text">
-            {t.types.title}
+            {t.types?.title || 'Types of Silk Sarees & Raw Zari We Buy'}
           </h2>
           <p className="text-amber-100/70 text-sm sm:text-base">
-            {t.types.subtitle}
+            {t.types?.subtitle || 'We buy all varieties of old, second-hand, wedding, soft silk, and damaged pattu sarees at direct silk mill rates with doorstep spot cash.'}
           </p>
 
-          {/* Filter Pills */}
+          {/* Expanded Filter Pills */}
           <div className="flex flex-wrap justify-center gap-2 pt-4">
             <button
               onClick={() => setSelectedCategory('all')}
               className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'all' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
             >
-              All Saree & Zari Types
+              {t.typesPage?.categories?.all || 'All Types'} ({sareeTypesCatalog.length})
             </button>
             <button
               onClick={() => setSelectedCategory('kanchipuram')}
               className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'kanchipuram' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
             >
-              Kanchipuram Silk
+              {t.typesPage?.categories?.kanchipuram || 'Kanchipuram & Soft Silk'}
             </button>
             <button
-              onClick={() => setSelectedCategory('dharmavaram_arani')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'dharmavaram_arani' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+              onClick={() => setSelectedCategory('arani')}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'arani' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
             >
-              Arani & Dharmavaram
+              {t.typesPage?.categories?.arani || 'Arani & Dharmavaram'}
             </button>
             <button
-              onClick={() => setSelectedCategory('damaged_torn')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'damaged_torn' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+              onClick={() => setSelectedCategory('other_silk')}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'other_silk' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
             >
-              Damaged / Torn Sarees
+              {t.typesPage?.categories?.other_silk || 'Banarasi, Mysore, Tissue & Gadwal'}
             </button>
             <button
-              onClick={() => setSelectedCategory('veshti_angavastram')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'veshti_angavastram' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+              onClick={() => setSelectedCategory('damaged')}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'damaged' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
             >
-              Silk Veshti & Zari Threads
+              {t.typesPage?.categories?.damaged || 'Damaged & Torn Silk'}
+            </button>
+            <button
+              onClick={() => setSelectedCategory('veshti')}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'veshti' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+            >
+              {t.typesPage?.categories?.veshti || 'Silk Veshti & Angavastram'}
+            </button>
+            <button
+              onClick={() => setSelectedCategory('zari')}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${selectedCategory === 'zari' ? 'bg-amber-400 text-neutral-950 border-amber-300 shadow-lg shadow-amber-500/20' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+            >
+              {t.typesPage?.categories?.zari || 'Raw Zari Threads & Borders'}
             </button>
           </div>
         </div>
@@ -129,7 +141,7 @@ export default function SareeCollection({ currentLang, onOpenBooking }) {
                   className="w-full btn-gold text-xs justify-center py-3"
                 >
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Sell This Saree at Doorstep</span>
+                  <span>{t.typesPage?.sellBtn || 'Sell This Saree at Doorstep'}</span>
                 </button>
 
               </div>
@@ -155,11 +167,11 @@ export default function SareeCollection({ currentLang, onOpenBooking }) {
               />
               
               <h3 className="text-2xl font-bold gold-text mb-1">
-                {t.types[activeModalItem.titleKey]}
+                {activeModalItem.titleKey}
               </h3>
               
               <p className="text-sm text-amber-200/80 mb-3">
-                {t.types[activeModalItem.descKey]}
+                {activeModalItem.descKey}
               </p>
 
               <div className="bg-amber-950/40 border border-amber-500/30 p-3 rounded-lg text-xs text-amber-300 mb-4">

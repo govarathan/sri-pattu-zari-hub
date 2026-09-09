@@ -62,7 +62,7 @@ export default function SeoContentSection({ currentLang, onOpenBooking }) {
           
           <div className="bg-neutral-900/60 p-6 rounded-2xl border border-amber-500/20 space-y-3">
             <h3 className="text-lg font-bold text-amber-300">
-              Why Sell Your Old Silk Sarees to Sri Pattu & Zari Hub (Sneha Kanchipuram Silk Center)?
+              Why Sell Your Old Silk Sarees to Sri Pattu & Zari Hub?
             </h3>
             <p>
               Traditional silk sarees often remain unused in almirahs for decades, losing their lustrous appearance or getting damaged by moisture. However, genuine Kanchipuram, Arani, and Dharmavaram sarees contain authentic silver and gold zari threads that retain high intrinsic metallic value regardless of fabric age or torn condition.

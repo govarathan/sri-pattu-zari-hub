@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, MessageSquare, Globe, Menu, X, Sparkles, ChevronDown, ShieldCheck } from 'lucide-react';
 import { translations } from '../data/translations';
+import { getImageUrl } from '../utils/imageUtils';
 
 export default function Navbar({ currentLang, setLang, activeTab, setActiveTab, onOpenBooking }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -93,21 +94,21 @@ export default function Navbar({ currentLang, setLang, activeTab, setActiveTab, 
           
           {/* Logo & Brand */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none', color: 'inherit' }}>
-            <div style={{
-              width: 48, height: 48, borderRadius: '50%',
-              background: 'linear-gradient(135deg, #f7e7a9, #e5c158, #b88d22)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 4px 15px rgba(229,193,88,0.3)',
-              border: '1px solid rgba(247,231,169,0.4)',
-            }}>
-              <Sparkles style={{ width: 24, height: 24, color: '#0c0509' }} />
-            </div>
+            <img 
+              src={getImageUrl('images/sri_pattu_logo.png')} 
+              alt="Sri Pattu & Zari Hub Official Logo" 
+              style={{
+                width: 50, height: 50, borderRadius: '50%',
+                border: '2px solid #e5c158', objectFit: 'cover',
+                boxShadow: '0 0 20px rgba(229,193,88,0.5)',
+              }} 
+            />
             <div>
               <h1 className="font-heading-luxury gold-gradient-text" style={{ fontSize: '1.3rem', fontWeight: 900, letterSpacing: '0.05em', lineHeight: 1 }}>
                 SRI PATTU & ZARI HUB
               </h1>
               <p style={{ fontSize: '0.68rem', color: 'rgba(247,231,169,0.8)', fontWeight: 500, letterSpacing: '0.03em', marginTop: 2 }}>
-                Sneha Kanchipuram Silk Center
+                South India Old Silk Saree Buyer
               </p>
             </div>
           </Link>

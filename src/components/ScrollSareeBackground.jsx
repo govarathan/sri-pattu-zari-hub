@@ -1,12 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import { getImageUrl } from '../utils/imageUtils';
 
-/**
- * ScrollSareeBackground - ONE single saree that spreads/flows downward
- * as the user scrolls. The silk fabric unrolls behind all content like
- * a curtain of silk being draped down.
- * 
- * Content stays in the foreground. Saree stays in the background.
- */
 export default function ScrollSareeBackground() {
   const sareeRef = useRef(null);
   const containerRef = useRef(null);
@@ -22,11 +16,9 @@ export default function ScrollSareeBackground() {
           const scrollPercent = docHeight > 0 ? scrollY / docHeight : 0;
 
           if (sareeRef.current) {
-            // Saree unrolls from top to bottom as user scrolls
-            // Starts showing only 30% at top, reveals full image by 60% scroll
             const revealPercent = Math.min(scrollPercent * 2.5, 1);
-            const translateY = scrollY * 0.15; // Slow parallax downward movement
-            const sway = Math.sin(scrollY * 0.003) * 3; // Gentle swaying
+            const translateY = scrollY * 0.15;
+            const sway = Math.sin(scrollY * 0.003) * 3;
 
             sareeRef.current.style.transform = `translateY(${translateY}px) rotate(${sway}deg)`;
             sareeRef.current.style.clipPath = `inset(0 0 ${(1 - revealPercent) * 100}% 0)`;
@@ -40,7 +32,7 @@ export default function ScrollSareeBackground() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial state
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -59,7 +51,7 @@ export default function ScrollSareeBackground() {
         overflow: 'hidden',
       }}
     >
-      {/* Dark overlay to keep content readable */}
+      {/* Dark overlay */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -67,10 +59,10 @@ export default function ScrollSareeBackground() {
         zIndex: 2,
       }} />
 
-      {/* Single saree image that unrolls/flows down as user scrolls */}
+      {/* Single background saree image */}
       <img
         ref={sareeRef}
-        src="/images/saree_scroll_bg.png"
+        src={getImageUrl("images/saree_scroll_bg.png")}
         alt=""
         style={{
           position: 'absolute',
@@ -89,7 +81,6 @@ export default function ScrollSareeBackground() {
         }}
       />
 
-      {/* Subtle golden vignette glow at edges */}
       <div style={{
         position: 'absolute',
         top: '20%',

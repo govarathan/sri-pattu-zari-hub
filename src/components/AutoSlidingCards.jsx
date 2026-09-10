@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Sparkles, ShieldCheck, ZoomIn, ArrowRight } from 'lucide-react';
-import { sareeTypesCatalog } from '../data/sareeTypes';
-import { translations } from '../data/translations';
+import React, { useState, useEffect } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Sparkles,
+  ShieldCheck,
+  ZoomIn,
+  ArrowRight,
+} from "lucide-react";
+import { sareeTypesCatalog } from "../data/sareeTypes";
+import { translations } from "../data/translations";
 
 export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
   const t = translations[currentLang] || translations.en;
@@ -12,7 +19,9 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % sareeTypesCatalog.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % sareeTypesCatalog.length,
+      );
     }, 3500);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -22,13 +31,15 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + sareeTypesCatalog.length) % sareeTypesCatalog.length);
+    setCurrentIndex(
+      (prev) =>
+        (prev - 1 + sareeTypesCatalog.length) % sareeTypesCatalog.length,
+    );
   };
 
   return (
     <section className="py-12 bg-gradient-to-b from-[#0c0509] via-[#1a0812]/40 to-[#0c0509] border-b border-[#e5c158]/20 text-left relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
           <div>
@@ -47,7 +58,7 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
               className="text-xs text-[#f7e7a9] bg-[#160a10] border border-[#e5c158]/40 px-3 py-1.5 rounded-full font-bold hover:border-[#e5c158]"
             >
-              {isAutoPlaying ? '⏸ Pause Sliding' : '▶ Auto Slide'}
+              {isAutoPlaying ? "⏸ Pause Sliding" : "▶ Auto Slide"}
             </button>
             <button
               onClick={handlePrev}
@@ -65,12 +76,12 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
         </div>
 
         {/* Sliding Cards Container */}
-        <div 
+        <div
           className="relative overflow-hidden"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          <div 
+          <div
             className="flex transition-transform duration-700 ease-out gap-6"
             style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
           >
@@ -79,27 +90,32 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
               const desc = t.types[item.descKey] || item.descKey;
 
               return (
-                <div 
+                <div
                   key={idx}
-                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 luxury-card p-5 border border-[#e5c158]/30 flex flex-col justify-between group transition-transform duration-500 hover:scale-[1.02]"
+                  onClick={onOpenBooking}
+                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 luxury-card p-5 border border-[#e5c158]/30 flex flex-col justify-between group transition-transform duration-500 hover:scale-[1.02] cursor-pointer"
                 >
                   <div>
                     {/* Image */}
                     <div className="relative overflow-hidden rounded-2xl mb-4 h-56 border border-[#e5c158]/30">
-                      <img 
-                        src={item.image} 
+                      <img
+                        src={item.image}
                         alt={title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0c0509] via-transparent to-transparent opacity-80"></div>
-                      
+
                       <span className="absolute top-3 left-3 gold-badge text-[10px] bg-[#0c0509]/80 backdrop-blur-md">
                         {item.badge}
                       </span>
 
                       <div className="absolute bottom-3 left-3 right-3 text-left">
-                        <div className="text-[10px] text-[#e5c158] font-bold uppercase tracking-wider">Spot Cash Payout</div>
-                        <div className="text-xl font-extrabold text-[#f7e7a9]">{item.estimatedPriceRange}</div>
+                        <div className="text-[10px] text-[#e5c158] font-bold uppercase tracking-wider">
+                          Spot Cash Payout
+                        </div>
+                        <div className="text-xl font-extrabold text-[#f7e7a9]">
+                          {item.estimatedPriceRange}
+                        </div>
                       </div>
                     </div>
 
@@ -119,7 +135,6 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
                     <ShieldCheck className="w-4 h-4" />
                     <span>Sell This Saree</span>
                   </button>
-
                 </div>
               );
             })}
@@ -132,11 +147,10 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`h-2 rounded-full transition-all ${currentIndex === idx ? 'w-8 bg-[#e5c158]' : 'w-2 bg-[#e5c158]/30 hover:bg-[#e5c158]/60'}`}
+              className={`h-2 rounded-full transition-all ${currentIndex === idx ? "w-8 bg-[#e5c158]" : "w-2 bg-[#e5c158]/30 hover:bg-[#e5c158]/60"}`}
             />
           ))}
         </div>
-
       </div>
     </section>
   );

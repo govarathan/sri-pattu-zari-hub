@@ -3,6 +3,7 @@ import { CheckCircle2, MessageSquare, ShieldCheck, Phone } from "lucide-react";
 import { sareeTypesCatalog } from "../data/sareeTypes";
 import { translations } from "../data/translations";
 import { getImageUrl } from "../utils/imageUtils";
+import SeoHead from "../components/SeoHead";
 
 const imageMap = {
   kanchipuram: getImageUrl("images/kanchipuram_hero.png"),
@@ -48,6 +49,12 @@ export default function SareeTypesPage({ currentLang, onOpenBooking }) {
         color: "#f6f2ea",
       }}
     >
+      <SeoHead
+        title="Types of Silk Sarees & Zari We Buy | Kanchipuram, Arani, Veshti Rates"
+        description="Catalog of silk saree types we buy: Kanchipuram silk, Arani, Banaras, Mysore silk, damaged pattu, zari veshtis, and pure gold/silver zari threads at highest mill rates."
+        keywords="types of silk sarees we buy, kanchipuram silk rates, damaged pattu saree buyers, silk veshti buyer, pure zari thread rates, arani silk saree cash"
+        canonicalPath="/saree-types"
+      />
       {/* Page Header */}
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         <h1

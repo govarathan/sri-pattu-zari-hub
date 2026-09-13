@@ -1,42 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { setupAutoReveal } from './hooks/useScrollReveal';
+import React, { useState, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { setupAutoReveal } from "./hooks/useScrollReveal";
 
 // Layout Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import FloatingCallWidget from './components/FloatingCallWidget';
-import ScrollSareeBackground from './components/ScrollSareeBackground';
-import PickupBookingModal from './components/PickupBookingModal';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import FloatingCallWidget from "./components/FloatingCallWidget";
+import ScrollSareeBackground from "./components/ScrollSareeBackground";
+import PickupBookingModal from "./components/PickupBookingModal";
 
 // Home Page Components
-import HeroSection from './components/HeroSection';
-import AutoSlidingCards from './components/AutoSlidingCards';
-import AnimatedProcessSketch from './components/AnimatedProcessSketch';
-import ZariCalculator from './components/ZariCalculator';
-import SareeValuationWizard from './components/SareeValuationWizard';
-import SareeCollection from './components/SareeCollection';
-import LocationExplorer from './components/LocationExplorer';
-import SeoContentSection from './components/SeoContentSection';
-import TestimonialsFaq from './components/TestimonialsFaq';
+import HeroSection from "./components/HeroSection";
+import AutoSlidingCards from "./components/AutoSlidingCards";
+import AnimatedProcessSketch from "./components/AnimatedProcessSketch";
+import ZariCalculator from "./components/ZariCalculator";
+import SareeValuationWizard from "./components/SareeValuationWizard";
+import SareeCollection from "./components/SareeCollection";
+import LocationExplorer from "./components/LocationExplorer";
+import SeoContentSection from "./components/SeoContentSection";
+import TestimonialsFaq from "./components/TestimonialsFaq";
 
 // Pages
-import StatePage from './pages/StatePage';
-import CityPage from './pages/CityPage';
-import SareeTypesPage from './pages/SareeTypesPage';
-import ContactPage from './pages/ContactPage';
+import StatePage from "./pages/StatePage";
+import CityPage from "./pages/CityPage";
+import SareeTypesPage from "./pages/SareeTypesPage";
+import ContactPage from "./pages/ContactPage";
+import SeoHead from "./components/SeoHead";
 
 /* =========================================
    HOME PAGE (all existing sections combined)
    ========================================= */
 function HomePage({ currentLang, onOpenBooking }) {
   const scrollToCalculator = () => {
-    const elem = document.getElementById('calculator');
-    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+    const elem = document.getElementById("calculator");
+    if (elem) elem.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="page-enter">
+      <SeoHead
+        title="Sri Pattu & Zari Hub | Tambaram Second Saree Buyer & Old Silk Saree Spot Cash | 6374067251"
+        description="Sri Pattu & Zari Hub - Top rated Tambaram second saree buyer & South India's #1 buyer of old Kanchipuram silk sarees, damaged pattu, pure gold & silver zari. Free doorstep pickup & instant spot cash in Tambaram, Chennai, TN, KA, AP/TS, KL. Call Hotline: 6374067251"
+        keywords="tambaram second saree buyer, old pattu saree buyer tambaram, second hand silk saree buyer tambaram, cash for old silk sarees chennai, old pattu saree buyer chennai, kanchipuram saree cash, old zari buyer, damaged silk saree buyer, doorstep saree pickup, silk saree buyer bangalore, pattu saree buyer hyderabad, silk saree buyer kochi, sri pattu zari hub"
+        canonicalPath="/"
+      />
       <HeroSection
         currentLang={currentLang}
         onOpenBooking={onOpenBooking}
@@ -50,10 +57,7 @@ function HomePage({ currentLang, onOpenBooking }) {
         currentLang={currentLang}
         onOpenBooking={onOpenBooking}
       />
-      <ZariCalculator
-        currentLang={currentLang}
-        onOpenBooking={onOpenBooking}
-      />
+      <ZariCalculator currentLang={currentLang} onOpenBooking={onOpenBooking} />
       <SareeValuationWizard
         currentLang={currentLang}
         onOpenBooking={onOpenBooking}
@@ -70,9 +74,7 @@ function HomePage({ currentLang, onOpenBooking }) {
         currentLang={currentLang}
         onOpenBooking={onOpenBooking}
       />
-      <TestimonialsFaq
-        currentLang={currentLang}
-      />
+      <TestimonialsFaq currentLang={currentLang} />
     </div>
   );
 }
@@ -92,8 +94,8 @@ function ScrollToTop() {
    MAIN APP COMPONENT
    ========================================= */
 export default function App() {
-  const [currentLang, setLang] = useState('ta');
-  const [activeTab, setActiveTab] = useState('hero');
+  const [currentLang, setLang] = useState("ta");
+  const [activeTab, setActiveTab] = useState("hero");
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const openBooking = () => setIsBookingOpen(true);
@@ -106,17 +108,17 @@ export default function App() {
   }, []);
 
   const mainStyle = {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    background: '#0c0509',
-    color: '#f6f2ea',
-    position: 'relative',
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    background: "#0c0509",
+    color: "#f6f2ea",
+    position: "relative",
   };
 
   const contentStyle = {
     flexGrow: 1,
-    position: 'relative',
+    position: "relative",
     zIndex: 5,
   };
 
@@ -142,10 +144,7 @@ export default function App() {
           <Route
             path="/"
             element={
-              <HomePage
-                currentLang={currentLang}
-                onOpenBooking={openBooking}
-              />
+              <HomePage currentLang={currentLang} onOpenBooking={openBooking} />
             }
           />
           <Route
@@ -160,10 +159,7 @@ export default function App() {
           <Route
             path="/city/:stateId/:citySlug"
             element={
-              <CityPage
-                currentLang={currentLang}
-                onOpenBooking={openBooking}
-              />
+              <CityPage currentLang={currentLang} onOpenBooking={openBooking} />
             }
           />
           <Route
@@ -188,10 +184,7 @@ export default function App() {
           <Route
             path="*"
             element={
-              <HomePage
-                currentLang={currentLang}
-                onOpenBooking={openBooking}
-              />
+              <HomePage currentLang={currentLang} onOpenBooking={openBooking} />
             }
           />
         </Routes>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://govarathan.github.io/sri-pattu-zari-hub/sitemap.xml

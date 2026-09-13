@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { statesData } from "../data/locationsData";
 import { translations } from "../data/translations";
+import SeoHead from "../components/SeoHead";
 
 export default function StatePage({ currentLang, onOpenBooking }) {
   const navigate = useNavigate();
@@ -67,6 +68,24 @@ export default function StatePage({ currentLang, onOpenBooking }) {
         color: "#f6f2ea",
       }}
     >
+      <SeoHead
+        title={
+          state.seoTitle ||
+          `Sell Old Silk Sarees in ${state.name} | Direct Mill Price & Spot Cash | Sri Pattu & Zari Hub`
+        }
+        description={`Best old silk saree buyer in ${state.name}. We buy old Kanchipuram, Arani, damaged pattu sarees & zari with free doorstep pickup across ${state.name}. Call 63740 67251.`}
+        keywords={`sell old silk saree ${state.name}, old pattu saree buyer ${state.name}, zari buyer ${state.name}, doorstep saree pickup ${state.name}, ${state.featuredCities.map((c) => c.name).join(", ")}`}
+        canonicalPath={`/state/${state.id}`}
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: `Sri Pattu & Zari Hub - ${state.name}`,
+          telephone: "+916374067251",
+          url: `https://govarathan.github.io/sri-pattu-zari-hub/#/state/${state.id}`,
+          areaServed: state.name,
+          description: `South India's trusted old silk saree buyer operating across ${state.name}. Instant doorstep cash payout.`,
+        }}
+      />
       {/* Breadcrumbs */}
       <nav
         style={{

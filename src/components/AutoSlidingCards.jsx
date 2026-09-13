@@ -45,10 +45,12 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
           <div>
             <div className="inline-flex items-center gap-2 bg-[#e5c158]/10 border border-[#e5c158]/30 px-3 py-1 rounded-full text-xs font-bold text-[#e5c158] mb-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Live Auto-Sliding Saree Showcase</span>
+              <span>
+                {t.autoSliding?.badge || "Live Auto-Sliding Saree Showcase"}
+              </span>
             </div>
             <h3 className="text-2xl sm:text-4xl font-bold font-serif-luxury gold-gradient-text">
-              Featured Silk Saree Payout Rates
+              {t.autoSliding?.title || "Featured Silk Saree Payout Rates"}
             </h3>
           </div>
 
@@ -58,7 +60,9 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
               className="text-xs text-[#f7e7a9] bg-[#160a10] border border-[#e5c158]/40 px-3 py-1.5 rounded-full font-bold hover:border-[#e5c158]"
             >
-              {isAutoPlaying ? "⏸ Pause Sliding" : "▶ Auto Slide"}
+              {isAutoPlaying
+                ? t.autoSliding?.pause || "⏸ Pause Sliding"
+                : t.autoSliding?.play || "▶ Auto Slide"}
             </button>
             <button
               onClick={handlePrev}

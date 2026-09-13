@@ -16,6 +16,8 @@ import {
 import { statesData } from "../data/locationsData";
 import { sareeTypesCatalog } from "../data/sareeTypes";
 import { getImageUrl } from "../utils/imageUtils";
+import { translations } from "../data/translations";
+import SeoHead from "../components/SeoHead";
 
 export default function CityPage({ currentLang, onOpenBooking }) {
   const { stateId, citySlug } = useParams();
@@ -120,6 +122,35 @@ export default function CityPage({ currentLang, onOpenBooking }) {
         color: "#f6f2ea",
       }}
     >
+      <SeoHead
+        title={`${city.name} Second Saree Buyer & Old Silk Saree Spot Cash | Sri Pattu & Zari Hub`}
+        description={`Sell your old Kanchipuram silk sarees, torn pattu veshtis, and pure gold/silver zari in ${city.name}. Free doorstep pickup in ${city.time || "30 mins"} & instant spot cash payout. Call Hotline: 6374067251.`}
+        keywords={`second saree buyer ${city.name}, old pattu saree buyer ${city.name}, cash for silk saree ${city.name}, damaged silk saree cash ${city.name}, zari buyer ${city.name}, ${city.pincodes || ""}`}
+        canonicalPath={`/city/${state.id}/${city.slug || city.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: `Sri Pattu & Zari Hub - ${city.name} Second Saree Buyer`,
+          alternateName: [
+            `${city.name} Old Pattu Saree Buyer`,
+            `Silk Saree Buyer ${city.name}`,
+          ],
+          image:
+            "https://govarathan.github.io/sri-pattu-zari-hub/images/kanchipuram_hero.png",
+          telephone: "+916374067251",
+          url: `https://govarathan.github.io/sri-pattu-zari-hub/#/city/${state.id}/${city.slug || city.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+          priceRange: "₹₹₹",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: city.name,
+            addressRegion: state.name,
+            postalCode: city.pincodes ? city.pincodes.split(",")[0].trim() : "",
+            addressCountry: "IN",
+          },
+          areaServed: [city.name, state.name],
+          description: `Sell old Kanchipuram silk sarees in ${city.name}. Doorstep pickup & spot cash payout within ${city.time || "30 minutes"}.`,
+        }}
+      />
       {/* Schema.org JSON-LD for Local Sub-Location */}
       <script type="application/ld+json">
         {JSON.stringify({

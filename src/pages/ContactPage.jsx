@@ -168,9 +168,14 @@ Condition: ${formData.condition}`;
                   Sri Pattu & Zari Hub
                 </h3>
                 <h4
-                  style={{ fontSize: "0.85rem", margin: 0, color: "#fcd34d" }}
+                  style={{
+                    fontSize: "0.85rem",
+                    margin: 0,
+                    color: "#34d399",
+                    fontWeight: "bold",
+                  }}
                 >
-                  {t.contactPage?.cardSubheader || "Kanchipuram Silk Center"}
+                  SECOND HAND SILK SAREES BUYER
                 </h4>
               </div>
               <div style={{ textAlign: "right" }}>
@@ -184,7 +189,7 @@ Condition: ${formData.condition}`;
                     fontSize: "1.1rem",
                   }}
                 >
-                  7358327898
+                  73583 27898
                 </a>
                 <a
                   href="tel:9941761336"
@@ -196,7 +201,7 @@ Condition: ${formData.condition}`;
                     fontSize: "1.1rem",
                   }}
                 >
-                  9941761336
+                  99417 61336
                 </a>
               </div>
             </div>
@@ -205,23 +210,35 @@ Condition: ${formData.condition}`;
               className="font-heading-luxury gold-gradient-text"
               style={{
                 fontSize: "1.8rem",
-                margin: "0 0 0.5rem 0",
+                margin: "0 0 0.2rem 0",
                 lineHeight: "1.3",
               }}
             >
               ஸ்ரீ பட்டு & ஜரிகை மையம்
             </h2>
-            <h2
+            <h3
               className="font-heading-luxury"
               style={{
-                fontSize: "1.3rem",
-                margin: "0 0 1.5rem 0",
+                fontSize: "1.2rem",
+                margin: "0 0 0.5rem 0",
                 color: "#e2e2e2",
                 letterSpacing: "1px",
               }}
             >
               SRI PATTU & ZARI HUB
-            </h2>
+            </h3>
+            <div
+              style={{
+                fontSize: "0.75rem",
+                color: "#34d399",
+                fontWeight: 800,
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+                marginBottom: "1rem",
+              }}
+            >
+              SECOND HAND SAREES BUYER • DOORSTEP SPOT CASH
+            </div>
 
             <p
               className="font-serif-luxury"
@@ -230,20 +247,25 @@ Condition: ${formData.condition}`;
                 color: "#f7e7a9",
                 lineHeight: "1.6",
                 margin: "0 auto 1.5rem auto",
-                maxWidth: "90%",
+                maxWidth: "95%",
+                textAlign: "center",
               }}
             >
-              {t.contactPage?.cardDesc ||
-                "We buy old damaged silk sarees, silk veshtis, silk pavadais, Kanchipuram, Arani, and Dharmavaram silk sarees at fair market mill prices."}
+              பழைய கிழிந்த பட்டுப் புடவைகள், பட்டு வேஷ்டிகள், பட்டு பாவாடைகள்,
+              பட்டு அங்கவஸ்திரம், காஞ்சிபுரம், ஆரணி, தர்மவரம் பட்டு புடவைகள்
+              போன்ற அனைத்து பட்டு உடமைகளும் சிறந்த முறையில் நியாயமான விலைக்கு
+              வாங்கப்படும். (காஞ்சிபுரம் மில் விலைக்கு வாங்கப்படும்) போன்
+              செய்தால் வீட்டிற்கே வந்து எடுக்கப்படும்.
             </p>
 
             <div
               style={{
                 backgroundColor: "rgba(229,193,88,0.15)",
                 border: "1px solid rgba(229,193,88,0.4)",
-                padding: "1rem 1.5rem",
+                padding: "0.85rem 1.5rem",
                 borderRadius: "12px",
                 display: "inline-block",
+                marginBottom: "1rem",
               }}
             >
               <a
@@ -254,12 +276,23 @@ Condition: ${formData.condition}`;
                   gap: "0.5rem",
                   color: "#e5c158",
                   textDecoration: "none",
-                  fontSize: "1.5rem",
+                  fontSize: "1.4rem",
                   fontWeight: "bold",
                 }}
               >
-                <Phone size={24} /> 63740 67251
+                <Phone size={22} /> 63740 67251
               </a>
+            </div>
+
+            <div
+              style={{
+                fontSize: "0.8rem",
+                color: "#34d399",
+                fontWeight: "bold",
+                letterSpacing: "1px",
+              }}
+            >
+              www.sri-pattu-zari-hub.com
             </div>
           </div>
         </div>

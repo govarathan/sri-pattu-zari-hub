@@ -93,15 +93,16 @@ export default function Navbar({
             flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: 8,
+            gap: "8px 16px",
           }}
         >
           <div
+            className="hide-mobile"
             style={{
-              display: "flex",
               alignItems: "center",
               gap: 8,
               fontWeight: 600,
+              fontSize: "0.72rem",
             }}
           >
             <span
@@ -111,6 +112,7 @@ export default function Navbar({
                 borderRadius: "50%",
                 background: "#34d399",
                 animation: "pulse 2s infinite",
+                flexShrink: 0,
               }}
             />
             <span>{t.doorstepPromise}</span>
@@ -119,42 +121,68 @@ export default function Navbar({
             style={{
               display: "flex",
               alignItems: "center",
+              justifyContent: "space-between",
               gap: 16,
               fontSize: "0.75rem",
-              marginLeft: "auto",
+              width: "100%",
+              maxWidth: "100%",
             }}
+            className="top-bar-links"
           >
-            <a
-              href="tel:6374067251"
+            <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: 6,
-                color: "#e5c158",
                 fontWeight: 700,
-                textDecoration: "none",
+                color: "#34d399",
               }}
             >
-              <Phone style={{ width: 14, height: 14, color: "#34d399" }} />
-              <span>63740 67251</span>
-            </a>
-            <span style={{ opacity: 0.3 }}>|</span>
-            <a
-              href="https://wa.me/916374067251?text=Hi%2C%20I%20want%20to%20sell%20my%20old%20Pattu%20Saree."
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                color: "#6ee7b7",
-                fontWeight: 700,
-                textDecoration: "none",
-              }}
-            >
-              <MessageSquare style={{ width: 14, height: 14 }} />
-              <span>WhatsApp</span>
-            </a>
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "#34d399",
+                  animation: "pulse 2s infinite",
+                  flexShrink: 0,
+                }}
+              />
+              <span>Doorstep Pickup 24x7</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <a
+                href="tel:6374067251"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  color: "#e5c158",
+                  fontWeight: 800,
+                  textDecoration: "none",
+                }}
+              >
+                <Phone style={{ width: 14, height: 14, color: "#34d399" }} />
+                <span>63740 67251</span>
+              </a>
+              <span style={{ opacity: 0.3 }}>|</span>
+              <a
+                href="https://wa.me/916374067251?text=Hi%2C%20I%20want%20to%20sell%20my%20old%20Pattu%20Saree."
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                  color: "#6ee7b7",
+                  fontWeight: 700,
+                  textDecoration: "none",
+                }}
+              >
+                <MessageSquare style={{ width: 14, height: 14 }} />
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -176,42 +204,46 @@ export default function Navbar({
             style={{
               display: "flex",
               alignItems: "center",
-              gap: 14,
+              gap: 10,
               textDecoration: "none",
               color: "inherit",
+              flexShrink: 0,
             }}
           >
             <img
               src={getImageUrl("images/sri_pattu_logo.png")}
               alt="Sri Pattu & Zari Hub Official Logo"
               style={{
-                width: 50,
-                height: 50,
+                width: 44,
+                height: 44,
                 borderRadius: "50%",
                 border: "2px solid #e5c158",
                 objectFit: "cover",
-                boxShadow: "0 0 20px rgba(229,193,88,0.5)",
+                boxShadow: "0 0 15px rgba(229,193,88,0.5)",
               }}
             />
             <div>
               <h1
                 className="font-heading-luxury gold-gradient-text"
                 style={{
-                  fontSize: "1.3rem",
+                  fontSize: "clamp(0.9rem, 3vw, 1.25rem)",
                   fontWeight: 900,
-                  letterSpacing: "0.05em",
-                  lineHeight: 1,
+                  letterSpacing: "0.03em",
+                  lineHeight: 1.1,
+                  margin: 0,
+                  whiteSpace: "nowrap",
                 }}
               >
                 SRI PATTU & ZARI HUB
               </h1>
               <p
                 style={{
-                  fontSize: "0.68rem",
+                  fontSize: "0.62rem",
                   color: "rgba(247,231,169,0.8)",
                   fontWeight: 500,
-                  letterSpacing: "0.03em",
-                  marginTop: 2,
+                  letterSpacing: "0.02em",
+                  marginTop: 1,
+                  whiteSpace: "nowrap",
                 }}
               >
                 South India Old Silk Saree Buyer
@@ -221,7 +253,7 @@ export default function Navbar({
 
           {/* Desktop Navigation */}
           <nav
-            style={{ display: "flex", alignItems: "center", gap: 28 }}
+            style={{ alignItems: "center", gap: 24 }}
             className="hide-mobile"
           >
             {isHome ? (
@@ -457,18 +489,19 @@ export default function Navbar({
               className="show-mobile"
               style={{
                 color: "#e5c158",
-                padding: 8,
+                padding: "8px 12px",
                 borderRadius: 12,
                 background: "#160a10",
-                border: "1px solid rgba(229,193,88,0.3)",
+                border: "1px solid rgba(229,193,88,0.4)",
                 cursor: "pointer",
-                display: "none",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               {mobileMenuOpen ? (
-                <X style={{ width: 20, height: 20 }} />
+                <X style={{ width: 22, height: 22 }} />
               ) : (
-                <Menu style={{ width: 20, height: 20 }} />
+                <Menu style={{ width: 22, height: 22 }} />
               )}
             </button>
           </div>

@@ -1618,6 +1618,25 @@ ol {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* Responsive visibility helper rules */
+@media (max-width: 1023px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  .show-mobile {
+    display: inline-flex !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hide-mobile {
+    display: flex !important;
+  }
+  .show-mobile {
+    display: none !important;
+  }
+}
+
 /* Flex column on mobile */
 .flex-col-mobile {
   display: flex;

@@ -184,8 +184,26 @@ ol {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
+  line-height: 1.2;
   vertical-align: middle;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+  .btn-gold-luxury,
+  .btn-gold,
+  .btn-outline-luxury,
+  .btn-crimson,
+  .btn-emerald {
+    padding: 12px 18px !important;
+    font-size: 0.85rem !important;
+    white-space: normal !important;
+    width: 100% !important;
+  }
 }
 
 .btn-gold-luxury svg,

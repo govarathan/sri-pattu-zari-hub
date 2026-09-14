@@ -151,16 +151,25 @@ export default function SareeCollection({ currentLang, onOpenBooking }) {
                   </ul>
                 </div>
 
-                {/* Bottom Action Button */}
-                <button
-                  onClick={onOpenBooking}
-                  className="w-full btn-gold text-xs justify-center py-3"
-                >
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>
-                    {t.typesPage?.sellBtn || "Sell This Saree at Doorstep"}
-                  </span>
-                </button>
+                {/* Bottom Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+                  <a
+                    href={`https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20sell%20my%20${encodeURIComponent(item.id)}%20silk%20saree.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full btn-emerald text-xs justify-center py-2.5 text-decoration-none"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 fill-current" />
+                    <span>WhatsApp</span>
+                  </a>
+                  <button
+                    onClick={onOpenBooking}
+                    className="w-full btn-gold text-xs justify-center py-2.5"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>Book Pickup</span>
+                  </button>
+                </div>
               </div>
             );
           })}

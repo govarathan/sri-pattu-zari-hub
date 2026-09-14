@@ -9,9 +9,12 @@ import {
   Sparkles,
 } from "lucide-react";
 import { translations } from "../data/translations";
+import { getImageUrl } from "../utils/imageUtils";
 
 export default function OwnerCardSection({ currentLang, onOpenBooking }) {
   const t = translations[currentLang] || translations.en;
+  const whatsappUrl =
+    "https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20sell%20my%20silk%20sarees%20at%20my%20doorstep.";
 
   return (
     <section
@@ -38,26 +41,26 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Column: Visiting Card Showcase */}
+          {/* Left Column: Interactive Visiting Card Showcase */}
           <div className="lg:col-span-6 flex justify-center">
             {/* Visiting Card UI Frame */}
-            <div className="w-full max-w-md bg-gradient-to-br from-amber-400 via-amber-300 to-yellow-500 text-neutral-950 p-5 rounded-2xl shadow-2xl border-4 border-amber-200 relative overflow-hidden text-left transform transition-transform hover:rotate-1 hover:scale-105">
+            <div className="w-full max-w-md bg-gradient-to-br from-amber-400 via-amber-300 to-yellow-500 text-neutral-950 p-4 sm:p-5 rounded-2xl shadow-2xl border-4 border-amber-200 relative overflow-hidden text-left transform transition-transform hover:scale-[1.02]">
               {/* Top Card Strip with Official Logo */}
               <div className="flex justify-between items-center border-b-2 border-neutral-950/20 pb-3 mb-3">
                 <div className="flex items-center gap-3">
                   <img
                     src={getImageUrl("images/sri_pattu_logo.png")}
                     alt="Sri Pattu Official Logo"
-                    className="w-12 h-12 rounded-full border-2 border-neutral-950 object-cover shadow-md"
+                    className="w-12 h-12 rounded-full border-2 border-neutral-950 object-cover shadow-md shrink-0"
                   />
                   <div>
                     <div className="text-[9px] font-black tracking-widest text-neutral-800 uppercase">
                       ராதே கிருஷ்ணன் துணை
                     </div>
-                    <div className="text-lg font-black text-neutral-950 leading-tight">
+                    <div className="text-base sm:text-lg font-black text-neutral-950 leading-tight">
                       SRI PATTU & ZARI HUB
                     </div>
-                    <div className="text-[11px] font-extrabold text-red-900">
+                    <div className="text-[10px] sm:text-[11px] font-extrabold text-red-900">
                       SECOND HAND SILK SAREES BUYER
                     </div>
                   </div>
@@ -69,10 +72,10 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
                 <div className="text-xs font-bold tracking-widest text-amber-400">
                   ஸ்ரீ பட்டு & ஜரிகை மையம்
                 </div>
-                <div className="text-xl font-black tracking-tight text-white">
+                <div className="text-lg sm:text-xl font-black tracking-tight text-white">
                   SRI PATTU & ZARI HUB
                 </div>
-                <div className="text-[10px] text-emerald-400 uppercase font-bold tracking-widest pt-0.5">
+                <div className="text-[9px] sm:text-[10px] text-emerald-400 uppercase font-bold tracking-widest pt-0.5">
                   ALL OVER SOUTH INDIA DOORSTEP PICKUP • SPOT CASH
                 </div>
               </div>
@@ -80,16 +83,31 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
               {/* 6 Saree Photos Grid inside Business Card */}
               <div className="grid grid-cols-6 gap-1 bg-neutral-950 p-1.5 rounded-lg mb-3 border border-amber-500/40">
                 {[
-                  { img: getImageUrl("images/real_1.jpg"), label: "காஞ்சி" },
-                  { img: getImageUrl("images/real_3.jpg"), label: "ஆரணி" },
-                  { img: getImageUrl("images/real_5.jpg"), label: "வேஷ்டி" },
-                  { img: getImageUrl("images/real_6.jpg"), label: "பழுது" },
-                  { img: getImageUrl("images/real_7.jpg"), label: "பாவாடை" },
-                  { img: getImageUrl("images/real_8.jpg"), label: "ஜரிகை" },
+                  {
+                    img: getImageUrl("images/real/real_1.jpg"),
+                    label: "காஞ்சி",
+                  },
+                  { img: getImageUrl("images/real/real_3.jpg"), label: "ஆரணி" },
+                  {
+                    img: getImageUrl("images/real/real_5.jpg"),
+                    label: "வேஷ்டி",
+                  },
+                  {
+                    img: getImageUrl("images/real/real_6.jpg"),
+                    label: "பழுது",
+                  },
+                  {
+                    img: getImageUrl("images/real/real_7.jpg"),
+                    label: "பாவாடை",
+                  },
+                  {
+                    img: getImageUrl("images/real/real_8.jpg"),
+                    label: "ஜரிகை",
+                  },
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="relative h-12 rounded overflow-hidden border border-amber-400/40"
+                    className="relative h-10 sm:h-12 rounded overflow-hidden border border-amber-400/40"
                   >
                     <img
                       src={item.img}
@@ -116,12 +134,40 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
                 </p>
               </div>
 
-              {/* Card Phone Number & Website Bar */}
-              <div className="bg-neutral-950 text-amber-300 p-2.5 rounded-xl flex flex-col gap-1 text-center shadow-lg border border-amber-400/50">
+              {/* Card Phone Number & Interactive Action Bar */}
+              <div className="bg-neutral-950 text-amber-300 p-3 rounded-xl flex flex-col gap-2 text-center shadow-lg border border-amber-400/50">
                 <div className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">
                   தென்னிந்தியா முழுவதும் 24x7 ஹோம் பிக்கப் எண்
                 </div>
-                <div className="text-[10px] font-bold text-emerald-400 pt-1 tracking-wider border-t border-amber-500/20 mt-1">
+                <a
+                  href="tel:6374067251"
+                  className="text-xl sm:text-2xl font-black tracking-wider text-white hover:text-emerald-400 transition-colors flex items-center justify-center gap-2"
+                >
+                  <Phone className="w-5 h-5 text-emerald-400 animate-bounce" />
+                  <span>63740 67251</span>
+                </a>
+
+                <div className="flex gap-2 pt-1">
+                  <a
+                    href="tel:6374067251"
+                    className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2 px-2 rounded-lg flex items-center justify-center gap-1.5 transition-colors text-decoration-none"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Call 63740 67251</span>
+                  </a>
+
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs py-2 px-2 rounded-lg flex items-center justify-center gap-1.5 transition-colors text-decoration-none"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 fill-current" />
+                    <span>WhatsApp Quote</span>
+                  </a>
+                </div>
+
+                <div className="text-[10px] font-bold text-amber-400/80 pt-1 tracking-wider border-t border-amber-500/20 mt-1">
                   www.sri-pattu-zari-hub.com
                 </div>
               </div>
@@ -178,13 +224,23 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
                 </div>
               </div>
 
-              <div className="pt-3 flex gap-3">
+              <div className="pt-3 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full btn-emerald text-sm justify-center py-3 text-decoration-none"
+                >
+                  <MessageSquare className="w-4 h-4 fill-emerald-300" />
+                  <span>WhatsApp Quote Directly</span>
+                </a>
+
                 <button
                   onClick={onOpenBooking}
                   className="w-full btn-gold text-sm justify-center py-3"
                 >
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Book Free Doorstep Valuation</span>
+                  <span>Book Free Doorstep Pickup</span>
                 </button>
               </div>
             </div>

@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   Phone,
-  MessageSquare,
   MapPin,
-  Sparkles,
+  Mail,
   ShieldCheck,
-  Heart,
   Code2,
   ExternalLink,
+  Navigation,
 } from "lucide-react";
 import { translations } from "../data/translations";
 
@@ -50,11 +49,13 @@ export default function Footer({ currentLang, setActiveTab, onOpenBooking }) {
           image:
             "https://govarathan.github.io/sri-pattu-zari-hub/images/sri_pattu_logo.png",
           telephone: "+916374067251",
+          email: "sripattuzarihub@gmail.com",
           priceRange: "₹₹₹₹",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Main Weaving Silk Hub, GST Road, Tambaram",
-            addressLocality: "Tambaram, Chennai, Chengalpattu, Kanchipuram",
+            streetAddress:
+              "7, Kakkan St, Prashanthi Colony West, West Tambaram",
+            addressLocality: "Tambaram, Chennai",
             addressRegion: "Tamil Nadu",
             postalCode: "600045",
             addressCountry: "IN",
@@ -62,7 +63,7 @@ export default function Footer({ currentLang, setActiveTab, onOpenBooking }) {
           geo: {
             "@type": "GeoCoordinates",
             latitude: 12.9229,
-            longitude: 80.1275,
+            longitude: 80.1118,
           },
           openingHoursSpecification: {
             "@type": "OpeningHoursSpecification",
@@ -80,7 +81,7 @@ export default function Footer({ currentLang, setActiveTab, onOpenBooking }) {
           },
           sameAs: ["https://wa.me/916374067251"],
           description:
-            "Top rated South India silk buyer. We buy old Kanchipuram silk sarees, pure gold & silver zari, pattu veshtis across 100+ locations in Chennai, Chengalpattu, Kanchipuram with free doorstep pickup & instant spot cash.",
+            "Top rated South India silk buyer. We buy old Kanchipuram silk sarees, pure gold & silver zari, pattu veshtis across 100+ locations in Chennai, Tambaram, Kanchipuram with free doorstep pickup & instant spot cash.",
         })}
       </script>
 
@@ -284,7 +285,7 @@ export default function Footer({ currentLang, setActiveTab, onOpenBooking }) {
           </ul>
         </div>
 
-        {/* Col 4: Hotlines */}
+        {/* Col 4: Hotlines & Office Location */}
         <div>
           <h4
             style={{
@@ -296,13 +297,13 @@ export default function Footer({ currentLang, setActiveTab, onOpenBooking }) {
               marginBottom: 12,
             }}
           >
-            Direct Hotlines
+            Direct Contact & Office
           </h4>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: 8,
+              gap: 10,
               marginBottom: 16,
             }}
           >
@@ -315,38 +316,72 @@ export default function Footer({ currentLang, setActiveTab, onOpenBooking }) {
                 color: "#34d399",
                 fontWeight: 800,
                 textDecoration: "none",
+                fontSize: "0.9rem",
               }}
             >
               <Phone style={{ width: 16, height: 16 }} />
-              <span>Primary: 63740 67251</span>
+              <span>Hotline: 63740 67251</span>
             </a>
+
             <a
-              href="tel:7358327898"
+              href="mailto:sripattuzarihub@gmail.com"
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
-                color: "#fde68a",
+                color: "#fcd34d",
                 fontWeight: 700,
                 textDecoration: "none",
+                fontSize: "0.75rem",
+                wordBreak: "break-all",
               }}
             >
-              <Phone style={{ width: 16, height: 16, color: "#fbbf24" }} />
-              <span>Contact Line 1: 73583 27898</span>
+              <Mail style={{ width: 16, height: 16, flexShrink: 0 }} />
+              <span>sripattuzarihub@gmail.com</span>
             </a>
-            <a
-              href="tel:9941761336"
+
+            <div
               style={{
                 display: "flex",
-                alignItems: "center",
+                alignItems: "flex-start",
                 gap: 8,
-                color: "#fde68a",
-                fontWeight: 700,
-                textDecoration: "none",
+                color: "rgba(254,243,199,0.8)",
+                fontSize: "0.72rem",
+                lineHeight: 1.4,
               }}
             >
-              <Phone style={{ width: 16, height: 16, color: "#fbbf24" }} />
-              <span>Contact Line 2: 99417 61336</span>
+              <MapPin
+                style={{
+                  width: 16,
+                  height: 16,
+                  color: "#e5c158",
+                  flexShrink: 0,
+                  marginTop: 2,
+                }}
+              />
+              <span>
+                7, Kakkan St, Prashanthi Colony West, West Tambaram, Tambaram,
+                Tamil Nadu 600045
+              </span>
+            </div>
+
+            <a
+              href="https://maps.google.com/?q=7,+Kakkan+St,+Prashanthi+Colony+West,+West+Tambaram,+Tambaram,+Tamil+Nadu+600045"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                color: "#6ee7b7",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                textDecoration: "none",
+                marginTop: 2,
+              }}
+            >
+              <Navigation style={{ width: 14, height: 14 }} />
+              <span>Open in Google Maps ➔</span>
             </a>
           </div>
 

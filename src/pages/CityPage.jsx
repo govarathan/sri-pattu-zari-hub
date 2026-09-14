@@ -7,10 +7,8 @@ import {
   ChevronRight,
   MessageSquare,
   ShieldCheck,
-  CheckCircle2,
   Bike,
   HandCoins,
-  Sparkles,
   Navigation,
 } from "lucide-react";
 import { statesData } from "../data/locationsData";
@@ -522,6 +520,10 @@ export default function CityPage({ currentLang, onOpenBooking }) {
                 src={getImageUrl(saree.image)}
                 alt={saree.badge}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = getImageUrl("images/real/real_1.jpg");
+                }}
               />
               <div
                 style={{
@@ -645,37 +647,7 @@ export default function CityPage({ currentLang, onOpenBooking }) {
             }}
           >
             <Phone size={20} />{" "}
-            {t.cityPage?.primaryBtn || "Primary: 63740 67251"}
-          </a>
-          <a
-            href="tel:7358327898"
-            className="btn-outline-luxury"
-            style={{
-              padding: "1rem",
-              borderRadius: "8px",
-              textDecoration: "none",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
-            <Phone size={20} /> {t.cityPage?.altBtn || "Alt:"} 73583 27898
-          </a>
-          <a
-            href="tel:9941761336"
-            className="btn-outline-luxury"
-            style={{
-              padding: "1rem",
-              borderRadius: "8px",
-              textDecoration: "none",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
-            <Phone size={20} /> {t.cityPage?.altBtn || "Alt:"} 99417 61336
+            {t.cityPage?.primaryBtn || "Call Hotline: 63740 67251"}
           </a>
           <a
             href={`https://wa.me/916374067251?text=Hi, I am located in ${city.name} and want to sell silk sarees.`}
@@ -693,7 +665,6 @@ export default function CityPage({ currentLang, onOpenBooking }) {
               fontWeight: "bold",
               backgroundColor: "#0b5e56",
               color: "#f6f2ea",
-              marginTop: "1rem",
             }}
           >
             <MessageSquare size={20} />{" "}

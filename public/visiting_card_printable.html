@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ta">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SRI PATTU & ZARI HUB - 3.5x2 inch Printable Business Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@400;600;700;800;900&family=Noto+Sans+Tamil:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Noto Sans Tamil", "Outfit", sans-serif;
+      }
+
+      body {
+        background: #090306;
+        color: #f6f2ea;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .print-instructions {
+        max-width: 1050px;
+        margin-bottom: 24px;
+        text-align: center;
+        background: rgba(229, 193, 88, 0.1);
+        border: 1px solid rgba(229, 193, 88, 0.4);
+        padding: 16px 24px;
+        border-radius: 16px;
+        color: #f7e7a9;
+      }
+
+      .print-btn {
+        background: linear-gradient(
+          135deg,
+          #f7e7a9 0%,
+          #e5c158 50%,
+          #b88d22 100%
+        );
+        color: #0c0509;
+        font-weight: 800;
+        padding: 12px 28px;
+        border-radius: 9999px;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 12px;
+        box-shadow: 0 4px 20px rgba(229, 193, 88, 0.4);
+        transition: all 0.2s;
+      }
+
+      .print-btn:hover {
+        transform: scale(1.05);
+        background: #ffffff;
+      }
+
+      /* 3.5 inch x 2.0 inch Card Container (at 300 DPI = 1050px x 600px) */
+      .card-container {
+        width: 1050px;
+        height: 600px;
+        background: linear-gradient(
+          135deg,
+          #4a0011 0%,
+          #2b000a 40%,
+          #150005 100%
+        );
+        border: 6px solid #e5c158;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 25px 60px rgba(0, 0, 0, 0.8),
+          0 0 30px rgba(229, 193, 88, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* Gold Zari Frame Overlay */
+      .zari-border {
+        position: absolute;
+        inset: 8px;
+        border: 2px dashed rgba(229, 193, 88, 0.6);
+        border-radius: 14px;
+        pointer-events: none;
+      }
+
+      /* Header Section */
+      .card-header {
+        background: linear-gradient(to right, #730019, #4a0011, #730019);
+        border-bottom: 3px solid #e5c158;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+      }
+
+      .devotional-text {
+        position: absolute;
+        top: 4px;
+        right: 24px;
+        font-size: 13px;
+        color: #f7e7a9;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .brand-logo-group {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand-logo {
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        border: 3px solid #e5c158;
+        object-fit: cover;
+        box-shadow: 0 0 20px rgba(229, 193, 88, 0.6);
+      }
+
+      .brand-titles h1 {
+        font-family: "Cinzel", serif;
+        font-size: 32px;
+        font-weight: 900;
+        color: #ffffff;
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #f7e7a9 50%,
+          #e5c158 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+        line-height: 1.1;
+      }
+
+      .brand-titles h2 {
+        font-size: 18px;
+        color: #e5c158;
+        font-weight: 800;
+      }
+
+      .designation-badge {
+        background: #e5c158;
+        color: #4a0011;
+        padding: 6px 16px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Main Content Area */
+      .card-body {
+        padding: 16px 24px;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 20px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        flex-grow: 1;
+      }
+
+      /* 6 Saree Photos Grid (2 rows x 3 cols) */
+      .saree-photos-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 8px;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 8px;
+        border-radius: 14px;
+        border: 2px solid rgba(229, 193, 88, 0.4);
+      }
+
+      .saree-photo-item {
+        position: relative;
+        height: 95px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(229, 193, 88, 0.5);
+      }
+
+      .saree-photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-caption {
+        position: absolute;
+        bottom: 0;
+        inset-x: 0;
+        background: rgba(12, 5, 9, 0.85);
+        color: #f7e7a9;
+        font-size: 9px;
+        font-weight: 800;
+        text-align: center;
+        padding: 2px 0;
+      }
+
+      /* Tamil Services & Coverage Area */
+      .services-content {
+        background: rgba(22, 10, 16, 0.85);
+        border: 2px solid rgba(229, 193, 88, 0.35);
+        border-radius: 16px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        height: 100%;
+      }
+
+      .services-paragraph {
+        font-size: 15px;
+        color: #f6f2ea;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .mill-rate-highlight {
+        background: rgba(229, 193, 88, 0.2);
+        border: 1px solid #e5c158;
+        color: #f7e7a9;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .south-india-coverage {
+        background: linear-gradient(
+          135deg,
+          rgba(16, 185, 129, 0.3),
+          rgba(52, 211, 153, 0.15)
+        );
+        border: 1.5px solid #34d399;
+        color: #6ee7b7;
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      /* Footer Contact Bar */
+      .card-footer {
+        background: #0c0509;
+        border-top: 3px solid #e5c158;
+        padding: 10px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hotline-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hotline-label {
+        font-size: 12px;
+        color: #e5c158;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .phone-number-box {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: #ffffff;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-size: 24px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      }
+
+      .website-domain {
+        font-size: 15px;
+        color: #f7e7a9;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+
+      @media print {
+        body {
+          background: none;
+          padding: 0;
+        }
+        .print-instructions {
+          display: none;
+        }
+        .card-container {
+          box-shadow: none;
+          margin: 0 auto;
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="print-instructions">
+      <h2>
+        🎴 SRI PATTU & ZARI HUB — Standard 3.5" x 2.0" Physical Visiting Card
+        Template
+      </h2>
+      <p style="margin-top: 6px; font-size: 14px">
+        Includes 3D Crown Logo, 6 Real Saree Photos, Single Hotline
+        <strong>63740 67251</strong>, All Over South India Doorstep Pickup &
+        Website URL.
+      </p>
+      <button onclick="window.print()" class="print-btn">
+        🖨️ Print Physical Visiting Card (3.5" x 2.0")
+      </button>
+    </div>
+
+    <!-- Standard 3.5" x 2.0" Print-Ready Visiting Card -->
+    <div class="card-container">
+      <div class="zari-border"></div>
+
+      <!-- Header Section -->
+      <div class="card-header">
+        <div class="devotional-text">ராதே கிருஷ்ணன் துணை</div>
+
+        <div class="brand-logo-group">
+          <img
+            src="/sri-pattu-zari-hub/images/sri_pattu_logo.png"
+            alt="Sri Pattu Logo"
+            class="brand-logo"
+          />
+          <div class="brand-titles">
+            <h1>SRI PATTU & ZARI HUB</h1>
+            <h2>ஸ்ரீ பட்டு & ஜரிகை மையம்</h2>
+          </div>
+        </div>
+
+        <div class="designation-badge">SECOND HAND SILK SAREES BUYER</div>
+      </div>
+
+      <!-- Main Content Body -->
+      <div class="card-body">
+        <!-- 6 Real Saree Photo Thumbnails Grid -->
+        <div class="saree-photos-grid">
+          <div class="saree-photo-item">
+            <img
+              src="/sri-pattu-zari-hub/images/real_1.jpg"
+              alt="Kanchipuram Silk"
+            />
+            <div class="photo-caption">காஞ்சி பட்டு</div>
+          </div>
+          <div class="saree-photo-item">
+            <img src="/sri-pattu-zari-hub/images/real_3.jpg" alt="Arani Silk" />
+            <div class="photo-caption">ஆரணி பட்டு</div>
+          </div>
+          <div class="saree-photo-item">
+            <img
+              src="/sri-pattu-zari-hub/images/real_5.jpg"
+              alt="Pattu Veshti"
+            />
+            <div class="photo-caption">பட்டு வேஷ்டி</div>
+          </div>
+          <div class="saree-photo-item">
+            <img
+              src="/sri-pattu-zari-hub/images/real_6.jpg"
+              alt="Damaged Silk"
+            />
+            <div class="photo-caption">பழுதுபட்ட பட்டு</div>
+          </div>
+          <div class="saree-photo-item">
+            <img
+              src="/sri-pattu-zari-hub/images/real_7.jpg"
+              alt="Pavadai Set"
+            />
+            <div class="photo-caption">பட்டு பாவாடை</div>
+          </div>
+          <div class="saree-photo-item">
+            <img src="/sri-pattu-zari-hub/images/real_8.jpg" alt="Pure Zari" />
+            <div class="photo-caption">தூய ஜரிகை</div>
+          </div>
+        </div>
+
+        <!-- Services Description & Coverage -->
+        <div class="services-content">
+          <p class="services-paragraph">
+            பழைய கிழிந்த பட்டுப் புடவைகள், பட்டு வேஷ்டிகள், பட்டு பாவாடைகள்,
+            பட்டு அங்கவஸ்திரம், காஞ்சிபுரம், ஆரணி, தர்மவரம் பட்டு புடவைகள் போன்ற
+            அனைத்து பட்டு உடமைகளும் சிறந்த முறையில் நியாயமான விலைக்கு
+            வாங்கப்படும்.
+          </p>
+
+          <div class="mill-rate-highlight">
+            💰 காஞ்சிபுரம் மில் விலைக்கு வாங்கப்படும் (Direct Mill Rate Payout)
+          </div>
+
+          <div class="south-india-coverage">
+            🚚
+            <strong
+              >தென்னிந்தியா முழுவதும் 24x7 கதவிற்கே வந்து இலவச பிக்கப் & உடனடி
+              ஸ்பாட் கேஷ்!</strong
+            ><br />
+            (Tamil Nadu • Karnataka • AP & Telangana • Kerala • Puducherry)
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bar with Phone Number & Website -->
+      <div class="card-footer">
+        <div class="hotline-section">
+          <div class="hotline-label">உடனடி ஹோம் பிக்கப் எண் / Hotline:</div>
+          <div class="phone-number-box">📞 63740 67251</div>
+        </div>
+
+        <div class="website-domain">
+          🌐 <strong>www.sri-pattu-zari-hub.com</strong>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

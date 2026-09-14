@@ -41,22 +41,26 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
           {/* Left Column: Visiting Card Showcase */}
           <div className="lg:col-span-6 flex justify-center">
             {/* Visiting Card UI Frame */}
-            <div className="w-full max-w-md bg-gradient-to-br from-amber-400 via-amber-300 to-yellow-500 text-neutral-950 p-6 rounded-2xl shadow-2xl border-4 border-amber-200 relative overflow-hidden text-left transform transition-transform hover:rotate-1 hover:scale-105">
-              {/* Top Card Strip */}
-              <div className="flex justify-between items-start border-b-2 border-neutral-950/20 pb-3 mb-3">
-                <div>
-                  <div className="text-[10px] font-black tracking-widest text-neutral-800 uppercase">
-                    தொடர்பு / Contact Center:
+            <div className="w-full max-w-md bg-gradient-to-br from-amber-400 via-amber-300 to-yellow-500 text-neutral-950 p-5 rounded-2xl shadow-2xl border-4 border-amber-200 relative overflow-hidden text-left transform transition-transform hover:rotate-1 hover:scale-105">
+              {/* Top Card Strip with Official Logo */}
+              <div className="flex justify-between items-center border-b-2 border-neutral-950/20 pb-3 mb-3">
+                <div className="flex items-center gap-3">
+                  <img
+                    src={getImageUrl("images/sri_pattu_logo.png")}
+                    alt="Sri Pattu Official Logo"
+                    className="w-12 h-12 rounded-full border-2 border-neutral-950 object-cover shadow-md"
+                  />
+                  <div>
+                    <div className="text-[9px] font-black tracking-widest text-neutral-800 uppercase">
+                      ராதே கிருஷ்ணன் துணை
+                    </div>
+                    <div className="text-lg font-black text-neutral-950 leading-tight">
+                      SRI PATTU & ZARI HUB
+                    </div>
+                    <div className="text-[11px] font-extrabold text-red-900">
+                      SECOND HAND SILK SAREES BUYER
+                    </div>
                   </div>
-                  <div className="text-xl font-black text-neutral-950">
-                    SRI PATTU & ZARI HUB
-                  </div>
-                  <div className="text-xs font-extrabold text-red-900">
-                    SECOND HAND SILK SAREES BUYER
-                  </div>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-neutral-950 text-amber-400 flex items-center justify-center font-black text-xs shadow-md">
-                  PATTU
                 </div>
               </div>
 
@@ -69,37 +73,53 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
                   SRI PATTU & ZARI HUB
                 </div>
                 <div className="text-[10px] text-emerald-400 uppercase font-bold tracking-widest pt-0.5">
-                  SECOND HAND SAREES BUYER • SPOT CASH
+                  ALL OVER SOUTH INDIA DOORSTEP PICKUP • SPOT CASH
                 </div>
               </div>
 
+              {/* 6 Saree Photos Grid inside Business Card */}
+              <div className="grid grid-cols-6 gap-1 bg-neutral-950 p-1.5 rounded-lg mb-3 border border-amber-500/40">
+                {[
+                  { img: getImageUrl("images/real_1.jpg"), label: "காஞ்சி" },
+                  { img: getImageUrl("images/real_3.jpg"), label: "ஆரணி" },
+                  { img: getImageUrl("images/real_5.jpg"), label: "வேஷ்டி" },
+                  { img: getImageUrl("images/real_6.jpg"), label: "பழுது" },
+                  { img: getImageUrl("images/real_7.jpg"), label: "பாவாடை" },
+                  { img: getImageUrl("images/real_8.jpg"), label: "ஜரிகை" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="relative h-12 rounded overflow-hidden border border-amber-400/40"
+                  >
+                    <img
+                      src={item.img}
+                      alt={item.label}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-0 inset-x-0 bg-black/80 text-[7px] text-amber-200 font-bold text-center py-0.5">
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               {/* Card Services Description Text */}
-              <div className="bg-neutral-900/10 p-3 rounded-lg text-xs font-bold text-neutral-900 leading-snug space-y-1 mb-3 border border-neutral-950/20">
+              <div className="bg-neutral-900/10 p-2.5 rounded-lg text-xs font-bold text-neutral-900 leading-snug space-y-1 mb-3 border border-neutral-950/20">
                 <p>
                   பழைய கிழிந்த பட்டுப் புடவைகள், பட்டு வேஷ்டிகள், பட்டு
                   பாவாடைகள், பட்டு அங்கவஸ்திரம், காஞ்சிபுரம், ஆரணி, தர்மவரம்
-                  பட்டு புடவைகள் போன்ற அனைத்து பட்டு உடமைகளும் சிறந்த முறையில்
-                  நியாயமான விலைக்கு வாங்கப்படும்.
+                  பட்டு புடவைகள் நியாயமான விலைக்கு வாங்கப்படும்.
                 </p>
-                <p className="text-red-900 font-black text-xs pt-1 underline">
+                <p className="text-red-900 font-black text-[11px] pt-0.5 underline">
                   (காஞ்சிபுரம் மில் விலைக்கு வாங்கப்படும்) போன் செய்தால்
                   வீட்டிற்கே வந்து எடுக்கப்படும்
                 </p>
               </div>
 
-              {/* Card Phone Numbers & Website Bar */}
-              <div className="bg-neutral-950 text-amber-300 p-3 rounded-xl flex flex-col gap-1 text-center shadow-lg border border-amber-400/50">
-                <div className="text-[10px] font-bold text-amber-400/80 uppercase">
-                  ஹோம் பிக்கப் உதவி எண்கள் / Call Hotlines
-                </div>
-                <div className="text-xl font-black tracking-wider text-white flex items-center justify-center gap-2">
-                  <Phone className="w-5 h-5 text-amber-400 animate-bounce" />
-                  <span>63740 67251</span>
-                </div>
-                <div className="text-xs font-extrabold text-amber-200/90 flex justify-center gap-4 pt-0.5">
-                  <span>73583 27898</span>
-                  <span>•</span>
-                  <span>99417 61336</span>
+              {/* Card Phone Number & Website Bar */}
+              <div className="bg-neutral-950 text-amber-300 p-2.5 rounded-xl flex flex-col gap-1 text-center shadow-lg border border-amber-400/50">
+                <div className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">
+                  தென்னிந்தியா முழுவதும் 24x7 ஹோம் பிக்கப் எண்
                 </div>
                 <div className="text-[10px] font-bold text-emerald-400 pt-1 tracking-wider border-t border-amber-500/20 mt-1">
                   www.sri-pattu-zari-hub.com
@@ -139,39 +159,21 @@ export default function OwnerCardSection({ currentLang, onOpenBooking }) {
                   </a>
                 </div>
 
-                {/* Number 2 */}
+                {/* Business Email */}
                 <div className="flex items-center justify-between p-3 rounded-xl bg-neutral-900 border border-amber-500/30">
                   <div>
                     <div className="text-xs text-amber-400 font-bold">
-                      Contact Line 1
+                      Business Email
                     </div>
-                    <div className="text-base font-bold text-amber-100">
-                      73583 27898
-                    </div>
-                  </div>
-                  <a
-                    href="tel:7358327898"
-                    className="btn-gold text-xs py-1.5 px-3"
-                  >
-                    Call
-                  </a>
-                </div>
-
-                {/* Number 3 */}
-                <div className="flex items-center justify-between p-3 rounded-xl bg-neutral-900 border border-amber-500/30">
-                  <div>
-                    <div className="text-xs text-amber-400 font-bold">
-                      Contact Line 2
-                    </div>
-                    <div className="text-base font-bold text-amber-100">
-                      99417 61336
+                    <div className="text-sm font-bold text-amber-100">
+                      sripattuzarihub@gmail.com
                     </div>
                   </div>
                   <a
-                    href="tel:9941761336"
+                    href="mailto:sripattuzarihub@gmail.com"
                     className="btn-gold text-xs py-1.5 px-3"
                   >
-                    Call
+                    Email
                   </a>
                 </div>
               </div>

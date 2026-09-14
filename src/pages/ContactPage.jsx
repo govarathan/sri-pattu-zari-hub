@@ -4,7 +4,6 @@ import {
   MessageSquare,
   MapPin,
   Mail,
-  ShieldCheck,
   Sparkles,
   Send,
 } from "lucide-react";
@@ -180,28 +179,16 @@ Condition: ${formData.condition}`;
               </div>
               <div style={{ textAlign: "right" }}>
                 <a
-                  href="tel:7358327898"
+                  href="tel:6374067251"
                   style={{
                     display: "block",
-                    color: "#e5c158",
+                    color: "#34d399",
                     textDecoration: "none",
                     fontWeight: "bold",
-                    fontSize: "1.1rem",
+                    fontSize: "1.2rem",
                   }}
                 >
-                  73583 27898
-                </a>
-                <a
-                  href="tel:9941761336"
-                  style={{
-                    display: "block",
-                    color: "#e5c158",
-                    textDecoration: "none",
-                    fontWeight: "bold",
-                    fontSize: "1.1rem",
-                  }}
-                >
-                  99417 61336
+                  63740 67251
                 </a>
               </div>
             </div>
@@ -286,6 +273,17 @@ Condition: ${formData.condition}`;
 
             <div
               style={{
+                fontSize: "0.85rem",
+                color: "#fcd34d",
+                fontWeight: "bold",
+                marginBottom: "0.4rem",
+              }}
+            >
+              ✉ sripattuzarihub@gmail.com
+            </div>
+
+            <div
+              style={{
                 fontSize: "0.8rem",
                 color: "#34d399",
                 fontWeight: "bold",
@@ -295,6 +293,98 @@ Condition: ${formData.condition}`;
               www.sri-pattu-zari-hub.com
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Office Map & Location Section */}
+      <div
+        className="luxury-card glass-panel"
+        style={{
+          padding: "2.5rem",
+          borderRadius: "20px",
+          marginBottom: "5rem",
+          border: "1px solid rgba(229,193,88,0.4)",
+        }}
+      >
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              background: "rgba(229,193,88,0.1)",
+              border: "1px solid rgba(229,193,88,0.3)",
+              padding: "4px 14px",
+              borderRadius: "20px",
+              fontSize: "0.8rem",
+              color: "#e5c158",
+              fontWeight: "bold",
+              marginBottom: "0.75rem",
+            }}
+          >
+            <MapPin size={16} /> Official Registered Office
+          </div>
+          <h2
+            className="font-heading-luxury gold-gradient-text"
+            style={{ fontSize: "2rem", margin: "0 0 0.5rem 0" }}
+          >
+            Visit Our Main Office in Tambaram
+          </h2>
+          <p
+            style={{
+              fontSize: "1.1rem",
+              color: "#f7e7a9",
+              fontWeight: "600",
+              maxWidth: "800px",
+              margin: "0 auto",
+            }}
+          >
+            📍 7, Kakkan St, Prashanthi Colony West, West Tambaram, Tambaram,
+            Tamil Nadu 600045
+          </p>
+        </div>
+
+        {/* Embedded Google Map iframe */}
+        <div
+          style={{
+            borderRadius: "16px",
+            overflow: "hidden",
+            border: "2px solid #b88d22",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+            marginBottom: "1.5rem",
+          }}
+        >
+          <iframe
+            title="Sri Pattu & Zari Hub Office Location"
+            src="https://maps.google.com/maps?q=7,%20Kakkan%20St,%20Prashanthi%20Colony%20West,%20West%20Tambaram,%20Tambaram,%20Tamil%20Nadu%20600045&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="360"
+            style={{ border: 0, display: "block" }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div style={{ textAlign: "center" }}>
+          <a
+            href="https://maps.google.com/?q=7,+Kakkan+St,+Prashanthi+Colony+West,+West+Tambaram,+Tambaram,+Tamil+Nadu+600045"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold-luxury"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.85rem 2rem",
+              borderRadius: "30px",
+              textDecoration: "none",
+              fontWeight: "bold",
+              fontSize: "1rem",
+            }}
+          >
+            <MapPin size={20} /> Open Location in Google Maps for Navigation
+          </a>
         </div>
       </div>
 
@@ -315,7 +405,7 @@ Condition: ${formData.condition}`;
             className="font-heading-luxury"
             style={{ fontSize: "1.8rem", color: "#e5c158", margin: 0 }}
           >
-            {t.contactPage?.hotlinesTitle || "Direct Hotline Directory"}
+            {t.contactPage?.hotlinesTitle || "Direct Contact Information"}
           </h2>
 
           <div
@@ -352,7 +442,7 @@ Condition: ${formData.condition}`;
                 }}
               >
                 {t.contactPage?.doorstepPickupLine ||
-                  "Fast Doorstep Pickup Line (24/7)"}
+                  "Fast Doorstep Pickup Hotline (24/7)"}
               </div>
               <a
                 href="tel:6374067251"
@@ -414,7 +504,7 @@ Condition: ${formData.condition}`;
                   fontWeight: "700",
                 }}
               >
-                Chat on WhatsApp
+                Chat on WhatsApp (+91 63740 67251)
               </a>
             </div>
           </div>
@@ -442,7 +532,7 @@ Condition: ${formData.condition}`;
                 color: "#e5c158",
               }}
             >
-              <Phone size={22} />
+              <Mail size={22} />
             </div>
             <div>
               <div
@@ -452,38 +542,20 @@ Condition: ${formData.condition}`;
                   fontWeight: "bold",
                 }}
               >
-                {t.contactPage?.alternateLines || "Alternate Contact Lines"}
+                Official Business Email
               </div>
-              <div
+              <a
+                href="mailto:sripattuzarihub@gmail.com"
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.2rem",
+                  fontSize: "1.05rem",
+                  color: "#f7e7a9",
+                  textDecoration: "none",
+                  fontWeight: "700",
+                  wordBreak: "break-all",
                 }}
               >
-                <a
-                  href="tel:7358327898"
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "#f7e7a9",
-                    textDecoration: "none",
-                    fontWeight: "700",
-                  }}
-                >
-                  +91 73583 27898
-                </a>
-                <a
-                  href="tel:9941761336"
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "#f7e7a9",
-                    textDecoration: "none",
-                    fontWeight: "700",
-                  }}
-                >
-                  +91 99417 61336
-                </a>
-              </div>
+                sripattuzarihub@gmail.com
+              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,12 @@
 import React from "react";
-import { Phone, Award, Zap, Truck, ShieldAlert } from "lucide-react";
+import {
+  Phone,
+  MessageSquare,
+  Award,
+  Zap,
+  Truck,
+  ShieldAlert,
+} from "lucide-react";
 import { translations } from "../data/translations";
 import { getImageUrl } from "../utils/imageUtils";
 

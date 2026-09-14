@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { sareeTypesCatalog } from "../data/sareeTypes";
 import { translations } from "../data/translations";
-import { Sparkles, Check, ArrowRight, ShieldCheck, ZoomIn } from "lucide-react";
+import {
+  Sparkles,
+  Check,
+  ArrowRight,
+  ShieldCheck,
+  ZoomIn,
+  MessageSquare,
+} from "lucide-react";
 
 export default function SareeCollection({ currentLang, onOpenBooking }) {
   const t = translations[currentLang] || translations.en;

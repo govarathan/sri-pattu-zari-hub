@@ -170,7 +170,17 @@ export default function SareeCollection({ currentLang, onOpenBooking }) {
                     <span>WhatsApp</span>
                   </a>
                   <button
-                    onClick={onOpenBooking}
+                    onClick={(e) => {
+                      e && e.preventDefault && e.preventDefault();
+                      if (typeof onOpenBooking === "function") {
+                        onOpenBooking();
+                      } else {
+                        window.open(
+                          "https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20book%20a%20doorstep%20pickup.",
+                          "_blank",
+                        );
+                      }
+                    }}
                     className="w-full btn-gold text-xs justify-center py-2.5"
                   >
                     <ShieldCheck className="w-3.5 h-3.5" />

@@ -37,15 +37,18 @@ export default function PickupBookingModal({ isOpen, onClose, currentLang }) {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    window.open(`https://wa.me/916374067251?text=${whatsappMessage}`, "_blank");
-  };
-
   const whatsappMessage = encodeURIComponent(
     `Hello Sri Pattu & Zari Hub,\nI want to book a Doorstep Saree Pickup:\n\n👤 Name: ${formData.name || "Customer"}\n📞 Phone: ${formData.phone}\n📍 City: ${formData.city}\n👗 Saree Type: ${formData.sareeType}\n✨ Condition: ${formData.condition}\n📝 Notes: ${formData.notes || "None"}\n\nPlease call me back for pickup appointment.`,
   );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    const text = encodeURIComponent(
+      `Hello Sri Pattu & Zari Hub,\nI want to book a Doorstep Saree Pickup:\n\n👤 Name: ${formData.name || "Customer"}\n📞 Phone: ${formData.phone}\n📍 City: ${formData.city}\n👗 Saree Type: ${formData.sareeType}\n✨ Condition: ${formData.condition}\n📝 Notes: ${formData.notes || "None"}\n\nPlease call me back for pickup appointment.`,
+    );
+    window.open(`https://wa.me/916374067251?text=${text}`, "_blank");
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-neutral-950/80 backdrop-blur-md animate-fade-in">

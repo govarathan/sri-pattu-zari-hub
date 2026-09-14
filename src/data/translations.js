@@ -14,7 +14,7 @@ export const translations = {
       sareeTypes: "பட்டு வகைகள்",
       locations: "இடங்கள் & நகரங்கள்",
       calculator: "விலை கணக்கிடு",
-      cardDetails: "கார்டு விவரங்கள்",
+
       contact: "தொடர்புகொள்ள",
     },
     hero: {
@@ -249,7 +249,7 @@ export const translations = {
       sareeTypes: "పట్టు రకాలు",
       locations: "ప్రాంతాలు & నగరాలు",
       calculator: "ధర క్యాలిక్యులేటర్",
-      cardDetails: "కార్డ్ వివరాలు",
+
       contact: "సమాచారం",
     },
     hero: {
@@ -478,7 +478,7 @@ export const translations = {
       sareeTypes: "ರೇಷ್ಮೆ ವಿಧಗಳು",
       locations: "ಸ್ಥಳಗಳು & ನಗರಗಳು",
       calculator: "ಬೆಲೆ ಲೆಕ್ಕಾಚಾರ",
-      cardDetails: "ಕಾರ್ಡ್ ವಿವರಗಳು",
+
       contact: "ಸಂಪರ್ಕಿಸಿ",
     },
     hero: {
@@ -706,7 +706,7 @@ export const translations = {
       sareeTypes: "പട്ടു ഇനങ്ങൾ",
       locations: "സ്ഥലങ്ങൾ & നഗരങ്ങൾ",
       calculator: "വില കണക്കുകൂട്ടൽ",
-      cardDetails: "കാർഡ് വിവരങ്ങൾ",
+
       contact: "ബന്ധപ്പെടുക",
     },
     hero: {
@@ -935,7 +935,7 @@ export const translations = {
       sareeTypes: "Silk Types",
       locations: "Locations & Cities",
       calculator: "Price Calculator",
-      cardDetails: "Business Card",
+
       contact: "Contact Us",
     },
     hero: {
@@ -1167,7 +1167,7 @@ export const translations = {
       sareeTypes: "रेशम के प्रकार",
       locations: "शहर और राज्य",
       calculator: "मूल्य कैलकुलेटर",
-      cardDetails: "विज़िटिंग कार्ड",
+
       contact: "संपर्क करें",
     },
     hero: {

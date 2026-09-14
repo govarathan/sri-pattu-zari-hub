@@ -296,7 +296,17 @@ export default function CityPage({ currentLang, onOpenBooking }) {
           }}
         >
           <button
-            onClick={onOpenBooking}
+            onClick={(e) => {
+              e && e.preventDefault && e.preventDefault();
+              if (typeof onOpenBooking === "function") {
+                onOpenBooking();
+              } else {
+                window.open(
+                  "https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20book%20a%20doorstep%20pickup.",
+                  "_blank",
+                );
+              }
+            }}
             className="btn-gold-luxury"
             style={{
               padding: "1rem 2.5rem",
@@ -501,7 +511,17 @@ export default function CityPage({ currentLang, onOpenBooking }) {
         {sareeTypesCatalog.slice(0, 4).map((saree) => (
           <div
             key={saree.id}
-            onClick={onOpenBooking}
+            onClick={(e) => {
+              e && e.preventDefault && e.preventDefault();
+              if (typeof onOpenBooking === "function") {
+                onOpenBooking();
+              } else {
+                window.open(
+                  "https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20book%20a%20doorstep%20pickup.",
+                  "_blank",
+                );
+              }
+            }}
             className="luxury-card glass-panel"
             style={{
               borderRadius: "12px",

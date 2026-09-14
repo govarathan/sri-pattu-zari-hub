@@ -96,7 +96,17 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
               return (
                 <div
                   key={idx}
-                  onClick={onOpenBooking}
+                  onClick={(e) => {
+                    e && e.preventDefault && e.preventDefault();
+                    if (typeof onOpenBooking === "function") {
+                      onOpenBooking();
+                    } else {
+                      window.open(
+                        "https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20book%20a%20doorstep%20pickup.",
+                        "_blank",
+                      );
+                    }
+                  }}
                   className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 luxury-card p-5 border border-[#e5c158]/30 flex flex-col justify-between group transition-transform duration-500 hover:scale-[1.02] cursor-pointer"
                 >
                   <div>
@@ -133,7 +143,17 @@ export default function AutoSlidingCards({ currentLang, onOpenBooking }) {
                   </div>
 
                   <button
-                    onClick={onOpenBooking}
+                    onClick={(e) => {
+                      e && e.preventDefault && e.preventDefault();
+                      if (typeof onOpenBooking === "function") {
+                        onOpenBooking();
+                      } else {
+                        window.open(
+                          "https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20book%20a%20doorstep%20pickup.",
+                          "_blank",
+                        );
+                      }
+                    }}
                     className="w-full btn-gold-luxury text-xs justify-center py-2.5"
                   >
                     <ShieldCheck className="w-4 h-4" />

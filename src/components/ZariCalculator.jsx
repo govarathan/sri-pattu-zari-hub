@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
-import { Calculator, Sparkles, CheckCircle2, ArrowRight, ShieldCheck, Phone } from 'lucide-react';
-import { translations } from '../data/translations';
+import React, { useState } from "react";
+import {
+  Calculator,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  Phone,
+} from "lucide-react";
+import { translations } from "../data/translations";
 
 export default function ZariCalculator({ currentLang, onOpenBooking }) {
   const t = translations[currentLang] || translations.en;
 
-  const [sareeType, setSareeType] = useState('kanchipuram');
-  const [zariQuality, setZariQuality] = useState('pure');
+  const [sareeType, setSareeType] = useState("kanchipuram");
+  const [zariQuality, setZariQuality] = useState("pure");
   const [weightGrams, setWeightGrams] = useState(650);
 
   // Rate multiplier calculation formula
   const getRatePerGram = () => {
     let baseRate = 18; // base per gram
-    if (zariQuality === 'pure') baseRate = 85; // pure silver/gold zari per gram average payout
-    else if (zariQuality === 'tested') baseRate = 35;
+    if (zariQuality === "pure")
+      baseRate = 85; // pure silver/gold zari per gram average payout
+    else if (zariQuality === "tested") baseRate = 35;
     else baseRate = 18;
 
-    if (sareeType === 'kanchipuram') baseRate *= 1.25;
-    else if (sareeType === 'zari_thread') baseRate *= 1.4;
+    if (sareeType === "kanchipuram") baseRate *= 1.25;
+    else if (sareeType === "zari_thread") baseRate *= 1.4;
 
     return baseRate;
   };
@@ -27,9 +35,11 @@ export default function ZariCalculator({ currentLang, onOpenBooking }) {
   const estimatedMax = Math.round(weightGrams * ratePerGram * 1.15);
 
   return (
-    <section id="calculator" className="py-16 bg-gradient-to-b from-neutral-950 via-red-950/20 to-neutral-950 border-b border-amber-500/20">
+    <section
+      id="calculator"
+      className="py-16 bg-gradient-to-b from-neutral-950 via-red-950/20 to-neutral-950 border-b border-amber-500/20"
+    >
       <div className="max-w-6xl mx-auto px-4">
-        
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded-full text-xs font-bold text-amber-300">
@@ -46,10 +56,8 @@ export default function ZariCalculator({ currentLang, onOpenBooking }) {
 
         {/* Interactive Calculator Card */}
         <div className="glass-panel p-6 sm:p-10 gold-border-glow max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          
           {/* Controls Column */}
           <div className="md:col-span-7 space-y-6">
-            
             {/* Saree Type Dropdown */}
             <div>
               <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">
@@ -60,11 +68,21 @@ export default function ZariCalculator({ currentLang, onOpenBooking }) {
                 onChange={(e) => setSareeType(e.target.value)}
                 className="form-input text-amber-100 font-semibold"
               >
-                <option value="kanchipuram">Kanchipuram Heavy Pure Silk (காஞ்சிபுரம் பட்டு)</option>
-                <option value="arani_dharmavaram">Arani & Dharmavaram Silk (ஆரணி & தர்மவரம்)</option>
-                <option value="veshti">Silk Veshti & Angavastram (பட்டு வேஷ்டி)</option>
-                <option value="damaged">Damaged / Torn Saree (கிழிந்த பட்டு சேலை)</option>
-                <option value="zari_thread">Extracted Pure Zari Thread (உருகிய ஜரிகை)</option>
+                <option value="kanchipuram">
+                  Kanchipuram Heavy Pure Silk (காஞ்சிபுரம் பட்டு)
+                </option>
+                <option value="arani_dharmavaram">
+                  Arani & Dharmavaram Silk (ஆரணி & தர்மவரம்)
+                </option>
+                <option value="veshti">
+                  Silk Veshti & Angavastram (பட்டு வேஷ்டி)
+                </option>
+                <option value="damaged">
+                  Damaged / Torn Saree (கிழிந்த பட்டு சேலை)
+                </option>
+                <option value="zari_thread">
+                  Extracted Pure Zari Thread (உருகிய ஜரிகை)
+                </option>
               </select>
             </div>
 
@@ -76,22 +94,22 @@ export default function ZariCalculator({ currentLang, onOpenBooking }) {
               <div className="grid grid-cols-3 gap-2">
                 <button
                   type="button"
-                  onClick={() => setZariQuality('pure')}
-                  className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${zariQuality === 'pure' ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 border-amber-300 shadow-lg' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+                  onClick={() => setZariQuality("pure")}
+                  className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${zariQuality === "pure" ? "bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 border-amber-300 shadow-lg" : "bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400"}`}
                 >
                   {t.calculator.pureGoldZari}
                 </button>
                 <button
                   type="button"
-                  onClick={() => setZariQuality('tested')}
-                  className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${zariQuality === 'tested' ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 border-amber-300 shadow-lg' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+                  onClick={() => setZariQuality("tested")}
+                  className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${zariQuality === "tested" ? "bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 border-amber-300 shadow-lg" : "bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400"}`}
                 >
                   {t.calculator.testedZari}
                 </button>
                 <button
                   type="button"
-                  onClick={() => setZariQuality('half')}
-                  className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${zariQuality === 'half' ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 border-amber-300 shadow-lg' : 'bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400'}`}
+                  onClick={() => setZariQuality("half")}
+                  className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${zariQuality === "half" ? "bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 border-amber-300 shadow-lg" : "bg-neutral-900 text-amber-200 border-amber-500/30 hover:border-amber-400"}`}
                 >
                   {t.calculator.halfZari}
                 </button>
@@ -123,19 +141,18 @@ export default function ZariCalculator({ currentLang, onOpenBooking }) {
                 <span>2000g (Heavy Collection)</span>
               </div>
             </div>
-
           </div>
 
           {/* Result Column */}
           <div className="md:col-span-5 bg-gradient-to-br from-neutral-950 via-red-950 to-neutral-950 p-6 rounded-2xl border border-amber-500/40 text-center space-y-5 shadow-2xl relative overflow-hidden">
-            
             <div className="text-xs text-amber-300 font-bold uppercase tracking-widest">
               {t.calculator.estimatedValue}
             </div>
 
             <div className="py-2">
               <div className="text-3xl sm:text-4xl font-black gold-text tracking-tight">
-                ₹ {estimatedMin.toLocaleString('en-IN')} – ₹ {estimatedMax.toLocaleString('en-IN')}
+                ₹ {estimatedMin.toLocaleString("en-IN")} – ₹{" "}
+                {estimatedMax.toLocaleString("en-IN")}
               </div>
               <div className="text-[11px] text-emerald-400 font-bold mt-1">
                 ✔ Spot Cash Paid at Your Doorstep
@@ -158,7 +175,17 @@ export default function ZariCalculator({ currentLang, onOpenBooking }) {
             </div>
 
             <button
-              onClick={onOpenBooking}
+              onClick={(e) => {
+                e && e.preventDefault && e.preventDefault();
+                if (typeof onOpenBooking === "function") {
+                  onOpenBooking();
+                } else {
+                  window.open(
+                    "https://wa.me/916374067251?text=Hi%20Sri%20Pattu%20%26%20Zari%20Hub%2C%20I%20want%20to%20book%20a%20doorstep%20pickup.",
+                    "_blank",
+                  );
+                }
+              }}
               className="w-full btn-gold text-sm justify-center py-3"
             >
               <span>{t.calculator.bookPickupBtn}</span>
@@ -171,11 +198,8 @@ export default function ZariCalculator({ currentLang, onOpenBooking }) {
             >
               Need Exact Price? Call: 63740 67251
             </a>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

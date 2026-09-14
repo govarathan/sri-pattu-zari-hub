@@ -263,7 +263,6 @@ export default function Navbar({
                   { id: "calculator", label: t.nav.calculator },
                   { id: "types", label: t.nav.sareeTypes },
                   { id: "locations", label: t.nav.locations },
-                  { id: "card-details", label: t.nav.cardDetails },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -291,6 +290,22 @@ export default function Navbar({
                     {item.label}
                   </button>
                 ))}
+                <Link
+                  to="/contact"
+                  style={{
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color:
+                      location.pathname === "/contact"
+                        ? "#e5c158"
+                        : "rgba(246,242,234,0.7)",
+                    textDecoration: "none",
+                  }}
+                >
+                  {t.nav.contact || "Contact"}
+                </Link>
               </>
             ) : (
               <>
@@ -337,7 +352,7 @@ export default function Navbar({
                     textDecoration: "none",
                   }}
                 >
-                  {t.nav.cardDetails}
+                  {t.nav.contact || "Contact"}
                 </Link>
               </>
             )}
@@ -520,39 +535,51 @@ export default function Navbar({
         >
           {isHome ? (
             <>
-              {["hero", "calculator", "types", "locations", "card-details"].map(
-                (id) => (
-                  <button
-                    key={id}
-                    onClick={() => handleNavClick(id)}
-                    style={{
-                      width: "100%",
-                      textAlign: "left",
-                      padding: "12px 0",
-                      fontSize: "0.875rem",
-                      fontWeight: 700,
-                      color: "#f7e7a9",
-                      textTransform: "uppercase",
-                      borderBottom: "1px solid rgba(255,255,255,0.05)",
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {
-                      t.nav[
-                        id === "hero"
-                          ? "home"
-                          : id === "card-details"
-                            ? "cardDetails"
-                            : id === "types"
-                              ? "sareeTypes"
-                              : id
-                      ]
-                    }
-                  </button>
-                ),
-              )}
+              {["hero", "calculator", "types", "locations"].map((id) => (
+                <button
+                  key={id}
+                  onClick={() => handleNavClick(id)}
+                  style={{
+                    width: "100%",
+                    textAlign: "left",
+                    padding: "12px 0",
+                    fontSize: "0.875rem",
+                    fontWeight: 700,
+                    color: "#f7e7a9",
+                    textTransform: "uppercase",
+                    borderBottom: "1px solid rgba(255,255,255,0.05)",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  {
+                    t.nav[
+                      id === "hero"
+                        ? "home"
+                        : id === "types"
+                          ? "sareeTypes"
+                          : id
+                    ]
+                  }
+                </button>
+              ))}
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  display: "block",
+                  padding: "12px 0",
+                  fontSize: "0.875rem",
+                  fontWeight: 700,
+                  color: "#f7e7a9",
+                  textTransform: "uppercase",
+                  borderBottom: "1px solid rgba(255,255,255,0.05)",
+                  textDecoration: "none",
+                }}
+              >
+                {t.nav.contact || "Contact"}
+              </Link>
             </>
           ) : (
             <>
